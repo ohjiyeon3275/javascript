@@ -1,0 +1,72 @@
+
+
+
+const add = (a, b) => a + b
+
+
+/**
+ * 매개변수만 보고는 함수인지 뭔지 모름
+ */
+function calculator(func, a, b) {
+    return func(a,b)
+}
+
+add(3, 5)
+calculator(add, 3, 5) // 8
+
+// 함수자리에 함수가 아닌 함수의 호출을 인자로 입력하는 경우가 많다.
+
+// ex: add 가 아닌 add()로 사용하는 경우
+
+
+document.querySelector('#header').addEventListener('click', add());
+// 이렇게 작성을하면 클릭을 안해도 add함수가 실행된다. -> 자주 있는 실수
+
+
+// 1. 함수 선언 2. 함수 호출
+// 1, 2 차이점을 구분하기 위해서는 (하 해 되 돼 같은 트릭)
+
+
+// **리턴값으로 대체해보기!
+document.querySelector('#header').addEventListener('click', undefined + undefined);
+
+// 내가 함수에서 호출한것을 봣다 -> 리턴값으로 대체하기
+
+
+
+// but 요런 경우는? 가능하다.
+const onClick = () => {
+
+    return () => {
+        console.log('hello')
+    }
+}
+
+document.querySelector('#header').addEventListener('click', onClick());
+
+
+고차함수 : 함수 안에서 다른함수를 리턴하는함수 
+onClick = () => () => {
+    console.log('hello')
+}
+
+
+이것도 역시 리턴값 () => {
+    ~~
+}로 대체해서 확인 가능하다.
+
+
+export const App = () => {
+    const onClick = useCallback(
+      (2) => {
+        console.log(e.target)
+      }, [],
+    )
+
+    return (
+        <div onClick={undefined}></div>
+    )
+
+}
+
+
