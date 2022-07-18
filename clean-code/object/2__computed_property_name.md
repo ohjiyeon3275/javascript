@@ -92,3 +92,7 @@ for (let i = 0; i < 3; i++) {
 	console.log(obj[`func${i}`]());
 }
 ```
+
+
+-> computed property name이라는 건 import해서 쓰는 값과 식을 넣도록 하는 것임
+-> 라이브러리에서 가져다쓰는 name들을 동작 코드들이 어떻게 변경되는지(내부적으로) 알고 있으면 좋다.
