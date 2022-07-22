@@ -25,4 +25,6 @@ func()
 
 => 메서드 : 객체에 의존성이 있는 함수
 
-=> 
+=> function Func() {
+  return this;
+}
