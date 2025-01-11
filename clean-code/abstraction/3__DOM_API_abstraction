@@ -1,0 +1,53 @@
+```
+export createLoader = () => {
+  const el = document.createElement("div");
+  const el2 = document.createElement("div");
+  const el3 = document.createElement("div");
+
+  return {
+    el, el2, el3
+  }
+}
+
+export const createLoaderStyle = ({el, el2, el3}) => {
+  el.setAttribute("class", "stylestyle");
+  el2.setAttribute("class", "stylestyle2");
+  el3.setAttribute("class", "stylestyle3");
+
+  return {
+    el, el2, el3
+  }
+}
+
+const loader = () => {
+  const { el, el2, el3 } = createLoader();
+  const { newEl, newEl2, newEl3 } = createLoaderStyle({ el, el2, el3})
+
+  newEl.append(newEl2);
+  ...
+}
+
+const changeColor = (element) => {
+  element.style.backgroundColor = "black";
+}
+
+const openModal = (element) => {
+  element.classList.add('--open');
+}
+
+const closeModal = (element) => {
+  element.classList.remove('--open');
+}
+
+
+const modal = () => {
+  // 모달생성코드~~
+
+  return document.querySelector("#modal");
+}
+
+openModal(modal);
+changeColor(modal);
+...
+```
+요소 html/css 코드를 숨김(추상화)
